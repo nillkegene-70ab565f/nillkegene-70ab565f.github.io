@@ -1,0 +1,859 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>mrds14.com-影视专题深度解析_热门剧集推荐与追更指南</title>
+<meta name="description" content="mrds14.com 影视专题落地页，聚合热门剧集、短剧与直播内容，提供深度解析、分类推荐、最新更新动态和真实用户评论。帮助您高效发现值得追的影视内容，收藏追更不迷路。">
+<meta name="keywords" content="mrds14.com,影视专题,热门剧集推荐,追更指南,短剧解析">
+<style>
+  :root {
+    --bg: #f7f5f0;
+    --surface: #ffffff;
+    --surface-2: #f1ede6;
+    --ink: #1f1c18;
+    --ink-soft: #5d564c;
+    --ink-mute: #8a8175;
+    --line: #e3ddd2;
+    --accent: #b34a2c;
+    --accent-soft: #f4e3dc;
+    --accent-2: #2f5d55;
+    --accent-2-soft: #e2ece8;
+    --gold: #a8842c;
+    --radius: 14px;
+    --radius-sm: 9px;
+    --shadow: 0 2px 10px rgba(40, 34, 26, 0.05), 0 10px 30px -12px rgba(40, 34, 26, 0.12);
+    --shadow-hover: 0 4px 16px rgba(40, 34, 26, 0.08), 0 18px 40px -14px rgba(40, 34, 26, 0.18);
+    --maxw: 1200px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, -apple-system, "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.75;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+  ul { list-style: none; }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
+
+  /* ---------- 导航 ---------- */
+  .site-nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(247, 245, 240, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    display: flex; align-items: center; gap: 28px;
+    height: 64px; max-width: var(--maxw); margin: 0 auto; padding: 0 20px;
+  }
+  .brand {
+    display: flex; align-items: center; gap: 10px;
+    font-weight: 700; font-size: 17px; letter-spacing: 0.3px; white-space: nowrap;
+  }
+  .brand-mark {
+    width: 30px; height: 30px; border-radius: 8px;
+    background: linear-gradient(135deg, var(--accent), #d97756);
+    display: grid; place-items: center; color: #fff; font-size: 13px; font-weight: 800;
+    box-shadow: 0 4px 12px -4px rgba(179, 74, 44, 0.6);
+  }
+  .brand small { font-size: 11px; color: var(--ink-mute); font-weight: 500; display: block; margin-top: -3px; letter-spacing: 0.5px; }
+  .nav-links { display: flex; gap: 4px; flex-wrap: wrap; }
+  .nav-links a {
+    padding: 7px 13px; border-radius: 999px; font-size: 14px; color: var(--ink-soft);
+    transition: 0.18s; white-space: nowrap;
+  }
+  .nav-links a:hover { background: var(--accent-soft); color: var(--accent); }
+  .nav-search { margin-left: auto; display: flex; align-items: center; }
+  .nav-search input {
+    border: 1px solid var(--line); background: var(--surface);
+    border-radius: 999px; padding: 8px 16px; font-size: 13px; width: 180px;
+    outline: none; transition: 0.2s; color: var(--ink);
+  }
+  .nav-search input:focus { border-color: var(--accent); width: 210px; }
+
+  /* ---------- Banner ---------- */
+  .hero {
+    position: relative; overflow: hidden;
+    background:
+      radial-gradient(1200px 380px at 82% -10%, rgba(179, 74, 44, 0.10), transparent 60%),
+      radial-gradient(900px 340px at 8% 110%, rgba(47, 93, 85, 0.10), transparent 62%),
+      var(--bg);
+    border-bottom: 1px solid var(--line);
+  }
+  .hero-inner { max-width: var(--maxw); margin: 0 auto; padding: 58px 20px 50px; }
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: 999px; padding: 6px 14px; font-size: 12.5px; color: var(--ink-soft);
+    box-shadow: var(--shadow); margin-bottom: 20px;
+  }
+  .hero-tag i { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); display: inline-block; }
+  .hero h1 {
+    font-size: clamp(28px, 4.2vw, 44px); line-height: 1.28; letter-spacing: -0.5px;
+    font-weight: 800; max-width: 820px;
+  }
+  .hero h1 em { font-style: normal; color: var(--accent); }
+  .hero-sub { margin-top: 16px; max-width: 640px; color: var(--ink-soft); font-size: 15.5px; }
+  .hero-sub strong { color: var(--ink); font-weight: 600; }
+  .hero-search {
+    margin-top: 26px; display: flex; gap: 10px; max-width: 540px;
+  }
+  .hero-search input {
+    flex: 1; padding: 13px 20px; border-radius: 999px; border: 1px solid var(--line);
+    background: var(--surface); font-size: 14.5px; outline: none; box-shadow: var(--shadow);
+    transition: 0.2s; color: var(--ink);
+  }
+  .hero-search input:focus { border-color: var(--accent); }
+  .hero-search button {
+    padding: 0 26px; border-radius: 999px; border: none; cursor: pointer;
+    background: var(--accent); color: #fff; font-size: 14.5px; font-weight: 600;
+    box-shadow: 0 8px 20px -8px rgba(179, 74, 44, 0.65); transition: 0.2s;
+  }
+  .hero-search button:hover { background: #9d3f24; }
+  .hero-chips { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 9px; }
+  .hero-chips a {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 999px;
+    padding: 7px 15px; font-size: 13px; color: var(--ink-soft); transition: 0.2s;
+    box-shadow: 0 1px 4px rgba(40, 34, 26, 0.04);
+  }
+  .hero-chips a:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+
+  /* ---------- 通用 Section ---------- */
+  section { padding: 52px 0; }
+  .sec-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; margin-bottom: 28px; flex-wrap: wrap; }
+  .sec-head h2 {
+    font-size: clamp(21px, 2.6vw, 27px); font-weight: 800; letter-spacing: -0.3px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .sec-head h2::before {
+    content: ""; width: 5px; height: 22px; border-radius: 3px;
+    background: linear-gradient(180deg, var(--accent), #e0916f);
+  }
+  .sec-head p { color: var(--ink-mute); font-size: 13.5px; }
+  .sec-head .more-link { font-size: 13.5px; color: var(--accent); font-weight: 600; white-space: nowrap; }
+  .sec-head .more-link:hover { text-decoration: underline; }
+
+  /* ---------- 简介 ---------- */
+  .intro-box {
+    background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 30px 32px; box-shadow: var(--shadow);
+    display: grid; grid-template-columns: 1.6fr 1fr; gap: 32px;
+  }
+  .intro-box h3 { font-size: 18px; margin-bottom: 12px; font-weight: 700; }
+  .intro-box p { color: var(--ink-soft); margin-bottom: 12px; font-size: 14.5px; }
+  .intro-box p:last-child { margin-bottom: 0; }
+  .intro-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; align-content: start; }
+  .stat-cell {
+    background: var(--surface-2); border-radius: var(--radius-sm); padding: 14px 16px;
+  }
+  .stat-cell b { display: block; font-size: 21px; font-weight: 800; color: var(--accent); letter-spacing: -0.4px; }
+  .stat-cell span { font-size: 12.5px; color: var(--ink-mute); }
+
+  /* ---------- 卡片网格 ---------- */
+  .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .media-card {
+    background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+    overflow: hidden; box-shadow: var(--shadow); transition: 0.22s; display: flex; flex-direction: column;
+  }
+  .media-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); border-color: #d8cfc0; }
+  .media-cover {
+    height: 116px; position: relative;
+    background: linear-gradient(135deg, #e8dfd2, #d5c8b4 55%, #c3b49c);
+    display: flex; align-items: flex-end; padding: 12px 14px;
+  }
+  .media-cover.g2 { background: linear-gradient(135deg, #dbe7e2, #b9d0c7 55%, #9cbbb0); }
+  .media-cover.g3 { background: linear-gradient(135deg, #f2e2da, #e5c3b3 55%, #d3a48e); }
+  .media-cover.g4 { background: linear-gradient(135deg, #e3e0ea, #c7c1d6 55%, #ada5c1); }
+  .media-cover.g5 { background: linear-gradient(135deg, #efe6cf, #e0d0a8 55%, #cdb87f); }
+  .media-cover.g6 { background: linear-gradient(135deg, #e0e8ef, #bccfdd 55%, #9fb8ca); }
+  .cover-badge {
+    background: rgba(255,255,255,0.86); backdrop-filter: blur(4px);
+    border-radius: 6px; padding: 3px 9px; font-size: 11.5px; font-weight: 700; color: var(--ink-soft);
+  }
+  .media-body { padding: 16px 17px 18px; flex: 1; display: flex; flex-direction: column; }
+  .media-body h3 { font-size: 15.5px; font-weight: 700; margin-bottom: 7px; line-height: 1.45; }
+  .media-body h3 a:hover { color: var(--accent); }
+  .media-desc { font-size: 13px; color: var(--ink-soft); flex: 1; margin-bottom: 12px; }
+  .tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+  .tag-row span {
+    font-size: 11px; padding: 3px 9px; border-radius: 999px;
+    background: var(--accent-soft); color: var(--accent); font-weight: 600;
+  }
+  .tag-row span.alt { background: var(--accent-2-soft); color: var(--accent-2); }
+  .media-meta { display: flex; justify-content: space-between; font-size: 12px; color: var(--ink-mute); border-top: 1px dashed var(--line); padding-top: 10px; }
+  .media-meta b { color: var(--accent); font-weight: 700; }
+
+  /* ---------- 更新列表 ---------- */
+  .update-list { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .update-item {
+    background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-sm);
+    padding: 14px 18px; display: flex; align-items: center; gap: 14px; transition: 0.2s;
+  }
+  .update-item:hover { border-color: #d8cfc0; box-shadow: var(--shadow); }
+  .update-time {
+    flex-shrink: 0; font-size: 11.5px; font-weight: 700; color: var(--accent-2);
+    background: var(--accent-2-soft); border-radius: 6px; padding: 4px 8px; white-space: nowrap;
+  }
+  .update-item h4 { font-size: 14px; font-weight: 600; margin-bottom: 2px; }
+  .update-item p { font-size: 12.5px; color: var(--ink-mute); }
+
+  /* ---------- 分类入口 ---------- */
+  .cat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .cat-item {
+    background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-sm);
+    padding: 18px 16px; transition: 0.2s; display: flex; flex-direction: column; gap: 5px;
+  }
+  .cat-item:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: var(--accent); }
+  .cat-item b { font-size: 14.5px; font-weight: 700; }
+  .cat-item span { font-size: 12px; color: var(--ink-mute); }
+  .cat-item i {
+    width: 26px; height: 26px; border-radius: 7px; display: grid; place-items: center;
+    background: var(--accent-soft); color: var(--accent); font-style: normal; font-size: 13px; font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  /* ---------- 深度解析 ---------- */
+  .deep-article { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 34px 36px; box-shadow: var(--shadow); }
+  .deep-article h3 { font-size: 19px; margin: 26px 0 12px; font-weight: 700; }
+  .deep-article h3:first-child { margin-top: 0; }
+  .deep-article p { color: var(--ink-soft); margin-bottom: 13px; font-size: 14.5px; }
+  .deep-article strong { color: var(--ink); font-weight: 600; }
+  .deep-article blockquote {
+    border-left: 3px solid var(--accent); background: var(--surface-2);
+    padding: 14px 18px; border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    color: var(--ink-soft); font-size: 14px; margin: 18px 0;
+  }
+
+  /* ---------- 体验指南 ---------- */
+  .guide-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .guide-card {
+    background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 24px 22px; box-shadow: var(--shadow);
+  }
+  .guide-card i {
+    font-style: normal; width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center;
+    background: var(--accent-2-soft); color: var(--accent-2); font-weight: 800; font-size: 15px; margin-bottom: 14px;
+  }
+  .guide-card h3 { font-size: 15.5px; font-weight: 700; margin-bottom: 8px; }
+  .guide-card p { font-size: 13.5px; color: var(--ink-soft); }
+
+  /* ---------- FAQ ---------- */
+  .faq-list { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .faq-item {
+    background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-sm);
+    padding: 20px 22px; box-shadow: var(--shadow);
+  }
+  .faq-item h3 { font-size: 14.5px; font-weight: 700; margin-bottom: 8px; display: flex; gap: 8px; }
+  .faq-item h3 em {
+    font-style: normal; color: var(--accent); font-weight: 800; flex-shrink: 0;
+  }
+  .faq-item p { font-size: 13.5px; color: var(--ink-soft); }
+
+  /* ---------- 评论 ---------- */
+  .comment-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .comment-item {
+    background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-sm);
+    padding: 16px 18px; box-shadow: 0 1px 5px rgba(40, 34, 26, 0.04);
+  }
+  .comment-head { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .avatar {
+    width: 30px; height: 30px; border-radius: 50%; flex-shrink: 0;
+    display: grid; place-items: center; font-size: 12px; font-weight: 700; color: #fff;
+    background: linear-gradient(135deg, var(--accent), #d97756);
+  }
+  .avatar.a2 { background: linear-gradient(135deg, var(--accent-2), #67a096); }
+  .avatar.a3 { background: linear-gradient(135deg, #8a6fae, #b39ad1); }
+  .avatar.a4 { background: linear-gradient(135deg, #c08a2e, #dfb869); }
+  .comment-head b { font-size: 13px; font-weight: 600; }
+  .comment-head span { font-size: 11.5px; color: var(--ink-mute); margin-left: auto; }
+  .comment-item p { font-size: 13.5px; color: var(--ink-soft); }
+
+  /* ---------- 资讯 ---------- */
+  .news-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .news-card {
+    background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 22px 22px 20px; box-shadow: var(--shadow); transition: 0.2s; display: flex; flex-direction: column;
+  }
+  .news-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
+  .news-date { font-size: 12px; color: var(--ink-mute); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+  .news-date::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+  .news-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; line-height: 1.5; }
+  .news-card h3 a:hover { color: var(--accent); }
+  .news-card p { font-size: 13px; color: var(--ink-soft); flex: 1; }
+
+  /* ---------- 页脚 ---------- */
+  .site-footer {
+    background: #26221d; color: #cfc7ba; padding: 46px 0 30px; margin-top: 20px;
+  }
+  .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 34px; max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
+  .footer-brand b { color: #fff; font-size: 17px; display: flex; align-items: center; gap: 9px; margin-bottom: 12px; }
+  .footer-brand p { font-size: 13px; line-height: 1.8; color: #a49c8f; }
+  .footer-col h4 { color: #fff; font-size: 13.5px; margin-bottom: 14px; font-weight: 600; }
+  .footer-col a { display: block; font-size: 13px; color: #a49c8f; margin-bottom: 9px; transition: 0.2s; }
+  .footer-col a:hover { color: #f0b89c; }
+  .footer-bottom {
+    max-width: var(--maxw); margin: 34px auto 0; padding: 20px 20px 0;
+    border-top: 1px solid #3a352e; font-size: 12.5px; color: #8d857a;
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px;
+  }
+
+  /* ---------- 响应式 ---------- */
+  @media (max-width: 980px) {
+    .card-grid { grid-template-columns: repeat(2, 1fr); }
+    .intro-box { grid-template-columns: 1fr; gap: 22px; }
+    .cat-grid { grid-template-columns: repeat(2, 1fr); }
+    .guide-grid { grid-template-columns: 1fr; }
+    .news-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 26px; }
+    .deep-article { padding: 26px 22px; }
+  }
+  @media (max-width: 680px) {
+    .nav-inner { gap: 12px; height: auto; padding: 12px 16px; flex-wrap: wrap; }
+    .nav-links { order: 3; width: 100%; overflow-x: auto; gap: 2px; padding-bottom: 2px; }
+    .nav-links a { font-size: 13px; padding: 6px 11px; }
+    .nav-search input { width: 140px; }
+    .nav-search input:focus { width: 150px; }
+    .hero-inner { padding: 40px 16px 36px; }
+    .hero-search { flex-direction: column; }
+    .hero-search button { padding: 12px; }
+    .card-grid { grid-template-columns: 1fr; }
+    .update-list { grid-template-columns: 1fr; }
+    .cat-grid { grid-template-columns: 1fr 1fr; }
+    .faq-list { grid-template-columns: 1fr; }
+    .comment-grid { grid-template-columns: 1fr; }
+    .news-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; gap: 22px; }
+    section { padding: 38px 0; }
+    .deep-article { padding: 22px 16px; }
+    .intro-box { padding: 22px 18px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ========== 导航 ========== -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="/#top" class="brand">
+      <span class="brand-mark">M</span>
+      <span>mrds14.com<small>影视专题策展</small></span>
+    </a>
+    <div class="nav-links">
+      <a href="/#top">首页</a>
+      <a href="/#hot">热门推荐</a>
+      <a href="/#updates">最新更新</a>
+      <a href="/#deep">深度解析</a>
+      <a href="/#cats">分类</a>
+      <a href="/#faq">常见问题</a>
+      <a href="/#news">资讯</a>
+    </div>
+    <div class="nav-search">
+      <input type="text" placeholder="搜索剧集 / 短剧 / 专题..." aria-label="搜索">
+    </div>
+  </div>
+</nav>
+
+<!-- ========== 首屏 Banner ========== -->
+<header class="hero" id="top">
+  <div class="hero-inner">
+    <span class="hero-tag"><i></i> mrds14.com · 影视专题策展 · 2026 秋季更新</span>
+    <h1><em>mrds14.com</em> 影视专题深度解析：热门剧集、短剧与追更指南</h1>
+    <p class="hero-sub">
+      从口碑剧集到爆款短剧，从题材拆解到平台动态，<strong>mrds14.com</strong> 把值得追的内容整理成清晰可读的专题页。
+      无论是找片、补剧还是关注更新节奏，这里都提供一个结构化的浏览起点。
+    </p>
+    <div class="hero-search">
+      <input type="text" placeholder="输入剧名、题材或想看的内容类型..." aria-label="站内搜索">
+      <button type="button">搜索</button>
+    </div>
+    <div class="hero-chips">
+      <a href="/#hot">本季口碑剧集</a>
+      <a href="/#updates">今日更新动态</a>
+      <a href="/#deep">题材深度拆解</a>
+      <a href="/#cats">按类型浏览</a>
+      <a href="/#faq">追更常见问题</a>
+      <a href="/#news">影视资讯速览</a>
+      <a href="/#comments">观众真实评论</a>
+      <a href="/#guide">阅读体验指南</a>
+    </div>
+  </div>
+</header>
+
+<!-- ========== 内容简介 ========== -->
+<section id="intro">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>关于 mrds14.com 这个专题页</h2>
+      <p>内容定位 · 适合谁看 · 为什么值得收藏</p>
+    </div>
+    <div class="intro-box">
+      <div>
+        <h3>一个围绕「看什么、怎么追」整理的内容入口</h3>
+        <p>
+          很多观众打开一个影视页面，真正想解决的不是“有没有片”，而是“哪部值得花时间、节奏合不合口味、更新稳不稳定”。
+          <strong>mrds14.com</strong> 这个专题页正是围绕这一需求来组织的：先给你一个可扫读的热门内容清单，再用深度解析讲清楚题材特点与观感差异，最后用更新动态、FAQ 和用户评论补上真实使用层面的信息。
+        </p>
+        <p>
+          页面内容覆盖长剧集、短剧、直播综艺感内容等多个方向，适合时间碎片化、又不想被低质推荐反复消耗的观众。
+          如果你习惯先看口碑再决定要不要开追，或者想按类型快速缩圈，这里的分类入口和推荐卡片可以把浏览路径缩短不少。
+        </p>
+        <p>
+          所有内容以“专题参考”的方式呈现，不替代正片观看，也不做资源分发。你可以把它当成一个内容策展台：先看整理，再决定追哪一部、关注哪些更新节点。
+        </p>
+      </div>
+      <div class="intro-stats">
+        <div class="stat-cell"><b>12+</b><span>本页精选内容条目</span></div>
+        <div class="stat-cell"><b>8</b><span>分类浏览入口</span></div>
+        <div class="stat-cell"><b>6</b><span>高频追更问答</span></div>
+        <div class="stat-cell"><b>2026.11</b><span>最近更新整理时间</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 热门推荐 ========== -->
+<section id="hot">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>热门内容推荐</h2>
+      <p>按口碑、讨论度与更新稳定性综合整理的 9 个条目</p>
+      <a href="/#updates" class="more-link">查看更新动态 →</a>
+    </div>
+    <div class="card-grid">
+
+      <article class="media-card">
+        <div class="media-cover g2"><span class="cover-badge">悬疑 · 长剧</span></div>
+        <div class="media-body">
+          <h3><a href="/#deep">《雾港来信》</a></h3>
+          <p class="media-desc">以小镇失踪案为引，前六集埋线密集，第七集后开始回收。适合喜欢慢热推理、能接受多线叙事的观众。</p>
+          <div class="tag-row"><span>双线叙事</span><span class="alt">口碑稳</span><span>更新中</span></div>
+          <div class="media-meta"><span>豆瓣讨论 8.4 分档</span><b>热度 96</b></div>
+        </div>
+      </article>
+
+      <article class="media-card">
+        <div class="media-cover g3"><span class="cover-badge">都市 · 短剧</span></div>
+        <div class="media-body">
+          <h3><a href="/#updates">《一公里外的春天》</a></h3>
+          <p class="media-desc">每集 8 分钟，主打职场轻喜与生活流。节奏快但不吵，适合通勤和睡前碎片观看，已更至第 18 集。</p>
+          <div class="tag-row"><span>轻喜</span><span class="alt">每集8分钟</span><span>日更</span></div>
+          <div class="media-meta"><span>完播率表现好</span><b>热度 91</b></div>
+        </div>
+      </article>
+
+      <article class="media-card">
+        <div class="media-cover g5"><span class="cover-badge">古装 · 长篇</span></div>
+        <div class="media-body">
+          <h3><a href="/#cats">《长安十二楼》</a></h3>
+          <p class="media-desc">群像权谋加轻武侠，服化道投入明显。文戏比例高，前两集信息量大，建议连看两集再判断是否合口味。</p>
+          <div class="tag-row"><span>群像</span><span class="alt">权谋</span><span>周更4集</span></div>
+          <div class="media-meta"><span>制作完成度高</span><b>热度 89</b></div>
+        </div>
+      </article>
+
+      <article class="media-card">
+        <div class="media-cover g4"><span class="cover-badge">科幻 · 中篇</span></div>
+        <div class="media-body">
+          <h3><a href="/#deep">《回声协议》</a></h3>
+          <p class="media-desc">近未来设定，单集 45 分钟，共 12 集。世界观交代克制，重氛围与人性选择，适合喜欢硬设定但不排斥留白的观众。</p>
+          <div class="tag-row"><span>近未来</span><span class="alt">氛围向</span><span>已完结</span></div>
+          <div class="media-meta"><span>设定完成度 8.2 档</span><b>热度 87</b></div>
+        </div>
+      </article>
+
+      <article class="media-card">
+        <div class="media-cover g6"><span class="cover-badge">直播 · 综艺感</span></div>
+        <div class="media-body">
+          <h3><a href="/#news">《深夜对谈间》</a></h3>
+          <p class="media-desc">每周三、六晚直播，邀请不同嘉宾做长对谈。适合喜欢慢节奏聊天、边做事边听的内容消费者。</p>
+          <div class="tag-row"><span>直播对谈</span><span class="alt">回放可看</span><span>每周2场</span></div>
+          <div class="media-meta"><span>互动弹幕活跃</span><b>热度 85</b></div>
+        </div>
+      </article>
+
+      <article class="media-card">
+        <div class="media-cover"><span class="cover-badge">家庭 · 长剧</span></div>
+        <div class="media-body">
+          <h3><a href="/#hot">《餐桌上的四季》</a></h3>
+          <p class="media-desc">以三代同堂家庭为切口的生活剧，节奏温和，冲突不刻意。适合喜欢生活流、讨厌强情节拉扯的观众。</p>
+          <div class="tag-row"><span>生活流</span><span class="alt">治愈向</span><span>周更</span></div>
+          <div class="media-meta"><span>口碑中上</span><b>热度 83</b></div>
+        </div>
+      </article>
+
+      <article class="media-card">
+        <div class="media-cover g3"><span class="cover-badge">短剧 · 逆袭</span></div>
+        <div class="media-body">
+          <h3><a href="/#updates">《重启二十五岁》</a></h3>
+          <p class="media-desc">典型短剧节奏，开局三分钟抛冲突，反转密集。适合想快速获得情绪反馈、不追求复杂铺陈的观众。</p>
+          <div class="tag-row"><span>快节奏</span><span class="alt">强反转</span><span>已完结</span></div>
+          <div class="media-meta"><span>短剧榜常客</span><b>热度 82</b></div>
+        </div>
+      </article>
+
+      <article class="media-card">
+        <div class="media-cover g2"><span class="cover-badge">纪录片 · 人文</span></div>
+        <div class="media-body">
+          <h3><a href="/#deep">《河流记得》</a></h3>
+          <p class="media-desc">六集人文纪录片，沿水系走访不同城镇。镜头克制，旁白不煽情，适合作为周末慢看内容。</p>
+          <div class="tag-row"><span>人文纪实</span><span class="alt">旁白克制</span><span>全6集</span></div>
+          <div class="media-meta"><span>画面质感突出</span><b>热度 80</b></div>
+        </div>
+      </article>
+
+      <article class="media-card">
+        <div class="media-cover g5"><span class="cover-badge">动漫 · 季番</span></div>
+        <div class="media-body">
+          <h3><a href="/#cats">《星轨列车》</a></h3>
+          <p class="media-desc">本季新番，制作稳定，前四集以人物关系为主。对没看过原作的新观众也较友好，适合边追边补设定。</p>
+          <div class="tag-row"><span>季番</span><span class="alt">群像</span><span>周更1集</span></div>
+          <div class="media-meta"><span>作画稳定</span><b>热度 78</b></div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== 最新更新 ========== -->
+<section id="updates">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>最新更新与热播动态</h2>
+      <p>截至 2026 年 11 月 7 日的整理信息</p>
+      <a href="/#news" class="more-link">更多资讯 →</a>
+    </div>
+    <div class="update-list">
+      <div class="update-item"><span class="update-time">11-07</span><div><h4>《雾港来信》第 9 集上线</h4><p>关键线索回收，配角线开始收束，讨论区热度明显上升。</p></div></div>
+      <div class="update-item"><span class="update-time">11-07</span><div><h4>《一公里外的春天》更新至 18 集</h4><p>日常线进入转折，主角关系出现新变化，单集时长仍维持 8 分钟。</p></div></div>
+      <div class="update-item"><span class="update-time">11-06</span><div><h4>《深夜对谈间》周六场预告</h4><p>本周嘉宾为独立纪录片导演，主题围绕“镜头与真实”展开。</p></div></div>
+      <div class="update-item"><span class="update-time">11-06</span><div><h4>《长安十二楼》第 14-15 集上线</h4><p>群像线交汇，朝堂与江湖两条线首次正面碰撞。</p></div></div>
+      <div class="update-item"><span class="update-time">11-05</span><div><h4>《回声协议》全 12 集完结</h4><p>结局偏开放式，留下续作空间，完结后讨论量出现二次增长。</p></div></div>
+      <div class="update-item"><span class="update-time">11-05</span><div><h4>《星轨列车》第 6 集更新</h4><p>进入单元叙事节奏，新角色登场，作画稳定度保持良好。</p></div></div>
+      <div class="update-item"><span class="update-time">11-04</span><div><h4>《餐桌上的四季》更新至 22 集</h4><p>家庭冲突线暂时缓和，节奏回到生活流，评价趋于稳定。</p></div></div>
+      <div class="update-item"><span class="update-time">11-04</span><div><h4>《河流记得》全集可看</h4><p>人文纪录片六集完整上线，适合一次性或分周末慢看。</p></div></div>
+      <div class="update-item"><span class="update-time">11-03</span><div><h4>《重启二十五岁》番外篇上线</h4><p>补充主角后续日常，篇幅较短，适合已看完正片的观众。</p></div></div>
+      <div class="update-item"><span class="update-time">11-03</span><div><h4>短剧板块新增 4 部分类条目</h4><p>涵盖职场、家庭、轻喜与悬疑方向，便于按短时长筛选。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 分类入口 ========== -->
+<section id="cats">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>按类型浏览内容</h2>
+      <p>先缩圈，再决定追哪一部</p>
+    </div>
+    <div class="cat-grid">
+      <a href="/#deep" class="cat-item"><i>悬</i><b>悬疑推理</b><span>慢热铺陈 · 多线回收</span></a>
+      <a href="/#hot" class="cat-item"><i>都</i><b>都市生活</b><span>职场轻喜 · 生活流</span></a>
+      <a href="/#hot" class="cat-item"><i>古</i><b>古装权谋</b><span>群像 · 文戏比例高</span></a>
+      <a href="/#deep" class="cat-item"><i>科</i><b>科幻设定</b><span>近未来 · 氛围优先</span></a>
+      <a href="/#updates" class="cat-item"><i>短</i><b>短剧快看</b><span>每集8-15分钟 · 强反转</span></a>
+      <a href="/#news" class="cat-item"><i>直</i><b>直播对谈</b><span>慢节奏 · 可看回放</span></a>
+      <a href="/#deep" class="cat-item"><i>纪</i><b>纪录片</b><span>人文纪实 · 画面质感</span></a>
+      <a href="/#hot" class="cat-item"><i>番</i><b>动漫季番</b><span>周更 · 作画稳定度</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 深度解析 ========== -->
+<section id="deep">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>深度解析：mrds14.com 的专题视角</h2>
+      <p>题材特点 · 观感差异 · 适合人群</p>
+    </div>
+    <div class="deep-article">
+      <h3>为什么需要一个“专题式”的内容入口</h3>
+      <p>
+        影视内容过剩的年代，真正的成本不是“找不到片”，而是“选错了片，浪费两小时开头”。
+        <strong>mrds14.com</strong> 这个页面更愿意把内容按“观感特征”而不是单纯按“热度排名”来组织。
+        比如同样是悬疑，慢热铺陈和强反转短剧的消费体验完全不同，前者需要连续观看、后者适合碎片时间，如果不加区分地混在一起推荐，读者很容易在开头五分钟就流失。
+      </p>
+      <p>
+        因此这里的深度解析不是简单复述剧情，而是尽量回答几个实际问题：<strong>前几集的信息密度如何、节奏是匀速还是后段发力、人物关系是否容易记混、更新是否稳定</strong>。
+        这些维度对追更决策的影响，往往比一句“好看”更直接。
+      </p>
+
+      <h3>题材与节奏：长剧与短剧的消费差异</h3>
+      <p>
+        长剧集更依赖世界观的建立与人物关系的累积，通常前两到三集是“建立期”，观众需要给一点耐心。
+        例如《雾港来信》《长安十二楼》这类作品，信息量集中在前段，如果边刷手机边看，很容易漏掉关键线索。
+        而短剧走的是另一条路：开头三分钟抛出强冲突，每集结尾留钩子，靠密度换注意力。
+        两者没有高下之分，关键在于你当下能投入多少专注度。
+      </p>
+      <blockquote>
+        一个简单的判断方法：如果今天只有碎片时间，优先短剧或已完结中篇；如果愿意连看两集以上，再考虑慢热长剧。mrds14.com 的分类入口就是按这个逻辑粗分的第一层。
+      </blockquote>
+
+      <h3>人物与群像：为什么有的剧“记不住人”</h3>
+      <p>
+        群像作品的一大风险是角色过多、辨识度不足。做得好的群像剧，会给每个角色一个“记忆钩子”——可能是一个口头习惯、一件固定配饰，或是一场独立的冲突戏。
+        在专题页里，我们会尽量在推荐卡片中点出“人物关系是否复杂”，帮助读者预判自己是否需要做笔记。
+        对普通观众来说，如果一部剧前两集出场超过十个人还没有明确主线，通常意味着需要更高的观看投入。
+      </p>
+
+      <h3>视听与表现力：不只看投入，更看是否服务叙事</h3>
+      <p>
+        制作投入高不等于观感好。有些剧画面精致但镜头语言单调，有些剧预算有限却靠调度和剪辑把节奏拉起来。
+        在《河流记得》这类纪录片里，镜头的克制本身就是叙事的一部分；而在科幻题材里，氛围能否立住，往往取决于美术和声音设计的统一度。
+        判断标准可以很朴素：<strong>你是否在观看时被画面带着走，而不是分心去看别的东西</strong>。
+      </p>
+
+      <h3>这类页面适合谁，不适合谁</h3>
+      <p>
+        适合：想先看整理再决定是否开追的观众、按类型缩圈的效率型用户、关注更新节奏的追更党、以及喜欢看短评和讨论再做判断的人。
+        不太适合：只想要资源链接的用户，或者希望页面直接给出“唯一正确答案”的用户——专题页提供的是参考维度，不是标准答案。
+      </p>
+      <p>
+        回到 <strong>mrds14.com</strong> 这个关键词本身，搜索它的用户大概率是在找一个结构化的影视内容入口，而不是单篇影评。
+        因此这个页面把推荐、解析、更新、问答和评论放在同一条阅读路径上，让读者可以从“随便看看”逐步过渡到“决定追哪一部”。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 体验指南 ========== -->
+<section id="guide">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>阅读与使用体验指南</h2>
+      <p>如何更高效地使用这个专题页</p>
+    </div>
+    <div class="guide-grid">
+      <div class="guide-card">
+        <i>1</i>
+        <h3>先扫卡片，再进深度</h3>
+        <p>推荐卡片已经压缩了题材、节奏与更新状态三个关键信息。先花两分钟扫一遍，再决定是否往下读深度解析，效率更高。</p>
+      </div>
+      <div class="guide-card">
+        <i>2</i>
+        <h3>用分类入口快速缩圈</h3>
+        <p>如果你已经明确想看悬疑、短剧或纪录片，直接从分类入口进入，比逐条翻卡片更快，也更不容易被无关内容打断。</p>
+      </div>
+      <div class="guide-card">
+        <i>3</i>
+        <h3>关注更新动态再开追</h3>
+        <p>连载类内容建议先看更新节奏。日更和周更的追更体验差别很大，已完结作品则更适合一次性或周末集中观看。</p>
+      </div>
+      <div class="guide-card">
+        <i>4</i>
+        <h3>移动端阅读友好</h3>
+        <p>页面按移动端优先做了适配，卡片、问答与评论在窄屏下会变为单列，方便通勤或睡前单手浏览。</p>
+      </div>
+      <div class="guide-card">
+        <i>5</i>
+        <h3>收藏专题，减少重复搜索</h3>
+        <p>更新动态和评论会持续变化，收藏本页比每次重新搜索更省时间，也方便对比不同阶段的口碑变化。</p>
+      </div>
+      <div class="guide-card">
+        <i>6</i>
+        <h3>评论区当作参考而非结论</h3>
+        <p>用户评论有推荐也有吐槽，建议结合自身口味判断。喜欢慢热的人未必适合强反转短剧，反之亦然。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FAQ ========== -->
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>常见问题</h2>
+      <p>围绕追更、选片与内容类型的 6 个高频疑问</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <h3><em>Q1</em> mrds14.com 这个页面主要提供什么内容？</h3>
+        <p>它更像一个影视专题策展页，把热门剧集、短剧、纪录片与直播内容按类型和观感特征整理在一起，附带深度解析、更新动态和用户评论，帮助你在开追之前快速判断是否合口味。</p>
+      </div>
+      <div class="faq-item">
+        <h3><em>Q2</em> 短剧和长剧应该先看哪个？</h3>
+        <p>取决于你当下的时间与专注度。只有碎片时间、希望快速获得情绪反馈，可以先看短剧；愿意连续观看两集以上、接受慢热铺陈，再考虑长剧。两者没有优劣，关键是匹配当前的消费场景。</p>
+      </div>
+      <div class="faq-item">
+        <h3><em>Q3</em> 页面里的评分和热度是实时的吗？</h3>
+        <p>热度与评分属于整理性参考信息，会随讨论量和更新节奏变化，并非实时数据。建议把它当作“相对位置”来看，而不是精确排名，结合评论与自身口味判断更稳妥。</p>
+      </div>
+      <div class="faq-item">
+        <h3><em>Q4</em> 为什么有的剧推荐里强调“前两集耐心”？</h3>
+        <p>因为慢热型作品通常在前段集中铺设世界观和人物关系，信息密度高但爽点后置。如果只看了开头十分钟就放弃，容易错过后续回收。卡片中标注这一点，是为了让读者提前有预期。</p>
+      </div>
+      <div class="faq-item">
+        <h3><em>Q5</em> 直播类内容错过直播还能看吗？</h3>
+        <p>页面中提到的直播条目一般会注明是否有回放。以《深夜对谈间》为例，直播后通常会上线回放，适合不追实时、只想听内容的观众，具体以实际更新为准。</p>
+      </div>
+      <div class="faq-item">
+        <h3><em>Q6</em> 如何判断一部剧是否适合自己？</h3>
+        <p>可以按三步走：先看推荐卡片中的题材与节奏标签，再看深度解析里关于人物关系和前段信息量的描述，最后扫一眼评论区里中性或吐槽的声音。三步之后通常能做出较清晰的判断。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 用户评论 ========== -->
+<section id="comments">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>观众评论</h2>
+      <p>近 30 天内的真实讨论感短评</p>
+    </div>
+    <div class="comment-grid">
+
+      <div class="comment-item">
+        <div class="comment-head"><span class="avatar">阿</span><b>阿野不熬夜</b><span>11-06</span></div>
+        <p>《雾港来信》第七集之后确实开始收了，前面几集我差点弃，还好坚持下来了。建议新观众直接连看两集再判断。</p>
+      </div>
+      <div class="comment-item">
+        <div class="comment-head"><span class="avatar a2">林</span><b>林间有风</b><span>11-05</span></div>
+        <p>短剧《一公里外的春天》通勤看刚刚好，八分钟一集不拖沓。不过后面几集冲突有点刻意，希望别烂尾。</p>
+      </div>
+      <div class="comment-item">
+        <div class="comment-head"><span class="avatar a3">苏</span><b>苏打气泡水</b><span>11-05</span></div>
+        <p>《回声协议》的结局我能接受，开放但不算糊弄。氛围做得很好，就是中间两集节奏稍慢，需要一点耐心。</p>
+      </div>
+      <div class="comment-item">
+        <div class="comment-head"><span class="avatar a4">老</span><b>老陈看片</b><span>11-04</span></div>
+        <p>古装群像那部信息量太大了，我第一集看完记不住人，倒回去又看了一遍。建议片方开头加个人物关系提示。</p>
+      </div>
+      <div class="comment-item">
+        <div class="comment-head"><span class="avatar">七</span><b>七号观众</b><span>11-04</span></div>
+        <p>这个专题页的分类做得挺清楚，按短剧、纪录片分开，比一股脑推热门舒服多了。希望更新动态能再勤一点。</p>
+      </div>
+      <div class="comment-item">
+        <div class="comment-head"><span class="avatar a2">南</span><b>南巷听雨</b><span>11-03</span></div>
+        <p>《河流记得》的画面真的舒服，旁白不吵，周末下午看一集刚好。适合不想被强情节牵着走的时候。</p>
+      </div>
+      <div class="comment-item">
+        <div class="comment-head"><span class="avatar a3">桃</span><b>桃桃乌龙</b><span>11-03</span></div>
+        <p>家庭生活剧那部节奏是真的慢，喜欢的人会很喜欢，我看了三集觉得有点平，可能不是我的菜。</p>
+      </div>
+      <div class="comment-item">
+        <div class="comment-head"><span class="avatar a4">大</span><b>大雾四起</b><span>11-02</span></div>
+        <p>直播对谈那档节目回放比直播还适合我，可以倍速也可以暂停记笔记。嘉宾选得不错，聊得不尬。</p>
+      </div>
+      <div class="comment-item">
+        <div class="comment-head"><span class="avatar">小</span><b>小满不忙</b><span>11-02</span></div>
+        <p>短剧逆袭那部反转确实多，但看多了有点套路。当消遣可以，别太较真逻辑，爽就完了。</p>
+      </div>
+      <div class="comment-item">
+        <div class="comment-head"><span class="avatar a2">橙</span><b>橙子汽水</b><span>11-01</span></div>
+        <p>新番《星轨列车》作画目前挺稳，没看过原作也能跟。希望后面别突然赶进度，季番最怕这个。</p>
+      </div>
+      <div class="comment-item">
+        <div class="comment-head"><span class="avatar a3">深</span><b>深海回信</b><span>10-31</span></div>
+        <p>深度解析那段讲长剧和短剧消费差异挺实在的，确实不是所有剧都适合边刷手机边看，有些漏一集就跟不上。</p>
+      </div>
+      <div class="comment-item">
+        <div class="comment-head"><span class="avatar a4">北</span><b>北纬三十度</b><span>10-30</span></div>
+        <p>希望能加个“已完结”筛选，现在追连载追得有点累，想先看完整季的，等更新太磨人了。</p>
+      </div>
+      <div class="comment-item">
+        <div class="comment-head"><span class="avatar">晚</span><b>晚风有信</b><span>10-29</span></div>
+        <p>评论里说《雾港来信》前段劝退的，我也有同感。不过第七集之后确实值回票价，属于慢热型选手。</p>
+      </div>
+      <div class="comment-item">
+        <div class="comment-head"><span class="avatar a2">芋</span><b>芋泥啵啵</b><span>10-28</span></div>
+        <p>纪录片板块选得不错，不是那种很吵的解说风。希望多推一些人文类的，自然类看多了想换换口味。</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== 相关资讯 ========== -->
+<section id="news">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>相关资讯</h2>
+      <p>围绕专题内容与更新节奏的 6 条动态</p>
+      <a href="/#updates" class="more-link">返回更新列表 →</a>
+    </div>
+    <div class="news-grid">
+
+      <article class="news-card">
+        <div class="news-date">2026-11-07</div>
+        <h3><a href="/#deep">悬疑专题本周热度走高，慢热型作品讨论量回升</a></h3>
+        <p>随着《雾港来信》进入回收阶段，此前被前段节奏劝退的观众开始回流，专题页内悬疑类目的点击占比明显上升。</p>
+      </article>
+
+      <article class="news-card">
+        <div class="news-date">2026-11-06</div>
+        <h3><a href="/#updates">短剧板块更新节奏加快，单集时长仍以 8-15 分钟为主</a></h3>
+        <p>近期上线的短剧在更新频率上更积极，但单集时长保持稳定，碎片化观看仍是主要消费场景。</p>
+      </article>
+
+      <article class="news-card">
+        <div class="news-date">2026-11-05</div>
+        <h3><a href="/#news">《回声协议》完结后口碑分化，开放式结局引发二次讨论</a></h3>
+        <p>完结并未让讨论降温，反而因为结局留白出现两派解读。专题页深度解析已补充相关视角，供读者参考。</p>
+      </article>
+
+      <article class="news-card">
+        <div class="news-date">2026-11-04</div>
+        <h3><a href="/#hot">人文纪录片专题页访问稳定，周末时段阅读量集中</a></h3>
+        <p>纪录片类内容的阅读高峰集中在周末下午，与慢看场景吻合。页面导航已针对这一习惯做了分类入口优化。</p>
+      </article>
+
+      <article class="news-card">
+        <div class="news-date">2026-11-03</div>
+        <h3><a href="/#comments">评论区新增“追更讨论”倾向，观众更关注更新稳定性</a></h3>
+        <p>近一周评论中，关于更新频率和是否烂尾的讨论明显增多，说明观众在选片时对连载风险的敏感度提高。</p>
+      </article>
+
+      <article class="news-card">
+        <div class="news-date">2026-11-02</div>
+        <h3><a href="/#cats">分类浏览使用率提升，按类型缩圈成为主要路径</a></h3>
+        <p>相比逐条翻卡片，更多读者选择从分类入口进入。页面后续会继续细化类型标签，减少选择成本。</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== 页脚 ========== -->
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <b><span class="brand-mark" style="width:26px;height:26px;font-size:12px;">M</span> mrds14.com</b>
+      <p>影视专题策展与内容整理页面，提供热门剧集、短剧、纪录片与直播对谈的推荐参考、深度解析和更新动态。内容以专题参考为主，不提供资源分发。</p>
+    </div>
+    <div class="footer-col">
+      <h4>浏览导航</h4>
+      <a href="/#hot">热门推荐</a>
+      <a href="/#updates">最新更新</a>
+      <a href="/#deep">深度解析</a>
+      <a href="/#cats">分类浏览</a>
+    </div>
+    <div class="footer-col">
+      <h4>内容板块</h4>
+      <a href="/#guide">体验指南</a>
+      <a href="/#faq">常见问题</a>
+      <a href="/#comments">观众评论</a>
+      <a href="/#news">相关资讯</a>
+    </div>
+    <div class="footer-col">
+      <h4>友情链接</h4>
+      <a href="/#top">专题首页</a>
+      <a href="/#intro">内容简介</a>
+      <a href="/#updates">更新动态</a>
+      <a href="/#news">资讯速览</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 mrds14.com · 影视专题内容整理</span>
+    <span>免责声明：本页内容为专题参考与信息整理，不构成观看建议，相关作品版权归原权利方所有。</span>
+  </div>
+</footer>
+
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</body>
+  </html>
